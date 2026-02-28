@@ -1,0 +1,79 @@
+domains
+	s=string
+predicates
+	mother(s,s)
+	father(s,s)
+	son(s,s)
+	daughter(s,s)
+	sister(s,s)
+	brother(s,s)
+	step_sister(s,s)
+	step_brother(s,s)
+	wife(s,s)
+	husband(s,s)
+	man(s)
+	woman(s)
+	parent(s,s)
+	married(s,s)
+clauses
+man("Олег").
+man("Петя").
+man("Коля").
+man("Толя").
+man("Вася").
+
+woman("Катя").
+woman("Юля").
+woman("Люба").
+woman("Оля").
+
+parent("Катя","Юля").
+parent("Катя","Петя").
+parent("Олег","Юля").
+parent("Олег","Петя").
+parent("Люба","Оля").
+parent("Люба","Толя").
+parent("Вася","Толя").
+parent("Вася","Коля").
+
+married("Катя","Олег").
+married("Люба","Вася").
+
+mother(X,Y):-
+	woman(Y),
+	parent(Y,X).
+father(X,Y):-
+	man(Y),
+	parent(Y,X).
+son(X,Y):-
+	man(Y),
+	parent(X,Y).
+daughter(X,Y):-
+	woman(Y),
+	parent(X,Y).
+sister(X,Y):-
+	woman(Y),
+	parent(Z,X),parent(Z,Y),
+	not(Y=X).
+brother(X,Y):-
+	man(Y),
+	parent(Z,X),parent(Z,Y),
+	not(Y=X).
+step_sister(X,Y):-
+	woman(Y),
+	mother(X,MX),mother(Y,MY),MX=MY,
+	not(mother(X,_)),not(mother(Y,_)),mother(X,MX),mother(Y,MY),MX=MY,
+	father(X,FX),father(Y,FY),FX=FY,
+	married(MX,FY),married(MY,FX).
+step_brother(X,Y):-
+	man(Y),
+	mother(X,MX),mother(Y,MY),MX=MY,
+	not(mother(X,_)),not(mother(Y,_)),mother(X,MX),
+	father(X,FX),father(Y,FY),FX=FY,
+	married(MX,FY),married(MY,FX).
+wife(X,Y):-
+	woman(Y),
+	married(Y,X).
+husband(X,Y):-
+	man(Y),
+	married(X,Y).

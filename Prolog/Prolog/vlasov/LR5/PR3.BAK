@@ -1,0 +1,55 @@
+DOMAINS
+    cl = char*
+    s = string
+
+PREDICATES
+    start
+    can_make(s, cl)
+    delete_one(char, cl, cl)
+    string_to_list(s, cl)
+    print_result(s, cl)
+
+CLAUSES
+    start :-
+        clearwindow,
+        write("Vvedite nabor bukv (napr: ooktlm): "),
+        readln(L_Str),
+        string_to_list(L_Str, Letters),
+        
+        write("Vvedite slovo (napr: molot): "),
+        readln(Word),
+        
+        nl, write("Checking..."), nl,
+        print_result(Word, Letters),
+        
+        nl, write("Press any key..."),
+        readchar(_).
+
+    /* Вспомогательный предикат вместо IF-THEN-ELSE */
+    print_result(W, L) :-
+        can_make(W, L), !,
+        write("RESULT: Mozhno sostavit' (OK)").
+    
+    print_result(_, _) :-
+        write("RESULT: Nel'zya sostavit' (FAIL)").
+
+    /* Преобразование строки в список символов */
+    string_to_list("", []) :- !.
+    string_to_list(S, [H|T]) :-
+        frontchar(S, H, Rest),
+        string_to_list(Rest, T).
+
+    /* Рекурсивная проверка слова */
+    can_make("", _) :- !.
+    can_make(Word, Letters) :-
+        frontchar(Word, C, Rest),
+        delete_one(C, Letters, NewLetters), !,
+        can_make(Rest, NewLetters).
+
+    /* Удаление одной буквы (счетчик) */
+    delete_one(X, [X|T], T) :- !.
+    delete_one(X, [H|T], [H|R]) :- 
+        delete_one(X, T, R).
+
+GOAL
+    start.

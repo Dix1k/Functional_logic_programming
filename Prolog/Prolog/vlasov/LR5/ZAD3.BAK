@@ -1,0 +1,21 @@
+predicates
+	getMaxMin(string,integer,integer)
+	max_min(integer,integer,integer,integer,integer)
+clauses
+getMaxMin(Str,Max,Min):-
+	fronttoken(Str,Word,Rest),!,
+	getMaxMin(Rest,Ma,Mi),str_len(Word,Len),
+	max_min(Ma,Mi,Len,Max,Min).
+getMaxMin(_,0,9999):-!.
+max_min(0,9999,Len,Len,Len):-!.
+max_min(Ma,Mi,Len,Len,Mi):-
+	Len>Ma,!.
+max_min(Ma,Mi,Len,Ma,Len):-
+	Len<Mi,!.
+	max_min(Max,Min,_,Max,Min).
+goal
+	clearwindow,
+	readln(Str),
+	fronttoken(Str,_,_),
+	getMaxMin(Str,Max,Min),
+	write("Самое длиное составленное слово ",Max).

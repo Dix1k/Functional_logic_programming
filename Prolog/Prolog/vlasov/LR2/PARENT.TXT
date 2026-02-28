@@ -1,0 +1,23 @@
+domains
+	s=string
+predicates
+	parent(s,s)
+	sister(s,s)
+	woman(s)
+	ok
+clauses
+	woman("Маша").
+	woman("Саша").
+	woman("Даша").
+	woman("Женя").
+	parent("Маша","Саша").
+	parent("Маша","Даша").
+	parent("Маша","Коля").
+	parent("Маша","Женя").
+sister(X,Y):-
+	parent(Z,X),
+	parent(Z,Y),
+	X<>Y,
+	woman(Y).
+ok:-
+	sister("Саша",F),write("- ",F," сестpа Саши"),nl,fail.

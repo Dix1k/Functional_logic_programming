@@ -1,0 +1,10 @@
+domains
+	i = integer
+predicates
+	pow(i,i,i) 
+clauses
+	pow(_,0,1).
+pow(P,N,R):-
+	N1=N-1,
+	pow(P,N1,R1),
+	R=R1*P, !.

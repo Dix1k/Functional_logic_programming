@@ -1,0 +1,11 @@
+domains
+	X=real
+	Y=real
+	Xc=real
+	Yc=real
+	R=real
+predicates
+	check(X,Y,Xc,Yc,R)
+clauses
+check(X,Y,Xc,Yc,R):-
+	sqrt((Xc-X)*(Xc-X)+(Yc-Y)*(Yc-Y))<R.

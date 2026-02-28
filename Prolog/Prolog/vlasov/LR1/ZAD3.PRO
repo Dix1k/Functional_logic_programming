@@ -1,0 +1,16 @@
+domains
+	i=integer
+	s=string
+predicates
+	man(i,s)
+clauses
+man(N,"дитя"):-
+	N<=8,N>0.
+man(N,"отpок"):-
+	N<=14,N>=9.
+man(N,"юноша"):-
+	N<=20,N>=15.
+man(N,"мужчина"):-
+	N<=60,N>=21.
+man(N,"стаpик"):-
+	N>=61.

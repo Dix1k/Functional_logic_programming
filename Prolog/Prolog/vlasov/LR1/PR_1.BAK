@@ -1,0 +1,8 @@
+predicates
+	ok
+clausees
+ok:-
+	write("введите имя: "),
+	readln(Name),
+	write("Пpивет ",Name,"!"),
+	nl.

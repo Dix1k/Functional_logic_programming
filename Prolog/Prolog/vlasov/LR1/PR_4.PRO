@@ -1,0 +1,17 @@
+domains
+	s=string
+predicates
+	mama(s,s)
+	baba(s,s)
+	papa(s,s)
+clauses
+	papa("Степа","Глаша").
+	mama("Маша","Глаша").
+	mama("Оля","Степа").
+	mama("Даша","Маша").
+baba(X,Y):-
+	mama(X,Z),
+	mama(Z,Y).
+baba(X,Y):-
+	mama(X,Z),
+	papa(Z,Y).

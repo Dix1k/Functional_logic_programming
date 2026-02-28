@@ -1,0 +1,40 @@
+DOMAINS
+    li = integer*
+
+PREDICATES
+    naiti_vse_kvadrati
+    permutaciya(li, li)
+    udalit(integer, li, li)
+    proverka_magii(li)
+
+CLAUSES
+    naiti_vse_kvadrati :-
+        L = [1,2,3,4,5,6,7,8,9],
+        permutaciya(L, [V1,V2,V3,V4,V5,V6,V7,V8,V9]),
+        proverka_magii([V1,V2,V3,V4,V5,V6,V7,V8,V9]),
+        write("--- Найдено pешение ---"), nl,
+        write(V1," ",V2," ",V3), nl,
+        write(V4," ",V5," ",V6), nl,
+        write(V7," ",V8," ",V9), nl,
+        write("Нажмите Enter для поиска следующего..."), nl,
+        readchar(_), 
+        fail. 
+
+    naiti_vse_kvadrati :- 
+        write("Больше pешений нет."), nl.
+
+    permutaciya([], []).
+    permutaciya(L, [H|T]) :- 
+        udalit(H, L, Rest), 
+        permutaciya(Rest, T).
+
+    udalit(X, [X|T], T).
+    udalit(X, [H|T], [H|R]) :- udalit(X, T, R).
+
+    proverka_magii([V1,V2,V3,V4,V5,V6,V7,V8,V9]) :-
+        V1+V2+V3 = 15, V4+V5+V6 = 15, V7+V8+V9 = 15, 
+        V1+V4+V7 = 15, V2+V5+V8 = 15, V3+V6+V9 = 15, 
+        V1+V5+V9 = 15, V3+V5+V7 = 15.                
+
+GOAL
+    naiti_vse_kvadrati.

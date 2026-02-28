@@ -1,0 +1,16 @@
+domains
+	i=integer
+predicates
+	step(i,i)
+	way(i,i)
+clauses
+	step(1,4).
+	step(4,5).
+	step(5,6).
+	step(4,7).
+	step(6,9).
+way(X,Y):-
+	step(X,Y).
+way(X,Y):-
+	step(X,Z),
+	way(Z,Y).

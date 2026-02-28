@@ -1,0 +1,7 @@
+DOMAINS
+	s=string
+PREDICATES
+	parent(s,s)
+	sister(s,s)
+	woman(s)
+include "C:\\P

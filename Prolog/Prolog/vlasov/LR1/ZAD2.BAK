@@ -1,0 +1,20 @@
+domains
+	r=real
+	i=integer
+predicates
+	check(r,r,r,r,r)
+	squer(r,r,r,r,i)
+	task(r,r,r,r,r)
+clauses
+check(X,Y,Xc,Yc,R):-
+	(X-Xc)*(X-Xc)+(Y-Yc)*(Y-Yc)<=R*R.
+squer(X,Y,Xc,Yc,1):-
+	X>=Xc,Y>=Yc.
+squer(X,Y,Xc,Yc,2):-
+	X<Xc,Y>=Yc.
+squer(X,Y,Xc,Yc,3):-
+	X<Xc,Y<Yc.
+squer(X,Y,Xc,Yc,4):-
+	X>=Xc,Y<Yc.
+task(X,Y,Xc,Yc,R):-
+	check(X,Y,Xc,Yc,R).

@@ -1,0 +1,7 @@
+predicates
+	mama(string,string)
+clauses
+	mama("Наташа","Даша").
+	mama("Даша","Маша").
+	mama("Маша","Глаша").
+	mama("Маша","Паша").

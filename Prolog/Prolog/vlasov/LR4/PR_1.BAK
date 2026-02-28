@@ -1,0 +1,48 @@
+domains
+	s=string
+	i=integer
+	file=f
+database
+	score(s,i)
+predicates
+	start
+	m(i)
+	menu
+clauses
+menu:-
+	clearwindow,
+	write("1 - Получение оценки по фамилии "),nl,
+	write("2 - Добавление новой записи "),nl,
+	write("0 - Выйти"),nl,
+	readchar(C),
+	m(C).
+m('1'):-
+	clearwindow,
+	write("Введите фамилию - "),nl,
+	readln(N),
+	score(N,B),
+	write("Оценка: ",B),
+	readchar(_),
+	menu.
+m('2'):-
+	clearwindow,
+	write("Введите фамилию - ",nl,
+	readln(N),
+	write("Введите оценку - "),nl,
+	readint(B),
+	assert(score(N,B)),
+	menu.
+m('0'):-
+	save("student.ddb").
+m(_):-
+	menu.
+start:-
+	existfile("student.ddb"),!,
+	consult("student.ddb"),
+	menu.
+start:-
+	openwrite(f,"student.ddb"),
+	closefile(f),
+	menu.
+goal
+	start.

@@ -1,0 +1,9 @@
+domains
+	i=integer
+predicates
+	t(i,i)
+clauses
+	t(1,3).
+t(X,Y):-
+	X=1,
+	2=Y.

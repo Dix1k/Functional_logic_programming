@@ -1,0 +1,1 @@
+C:\Prolog\App\DOSBox\dosbox.exe C:\Prolog\Prolog\start.bat

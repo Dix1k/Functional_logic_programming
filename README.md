@@ -36,39 +36,19 @@
 *   **Логическое программирование:** Turbo Prolog
 *   **Инструменты:** Git, встроенные предикаты работы с БД
 
-## 🚀 Быстрый старт
-
-1.  **Клонируйте репозиторий:**
-    ```bash
-    git clone https://github.com/Dix1k/Functional_logic_programming.git
-    cd Functional_logic_programming
-    ```
-
-2.  **Перейдите в интересующую вас лабораторную работу:**
-    ```bash
-    cd "Prolog/Лабораторки/LR1"  # например, для первой работы
-    ```
-
-3.  **Для запуска Prolog-файлов** вам потребуется интерпретатор (например, [SWI-Prolog](https://www.swi-prolog.org/) или Turbo Prolog):
-    ```bash
-    swipl имя_файла.pro
-    ```
-    Или загрузите в интерактивную среду:
-    ```bash
-    swipl
-    ?- [имя_файла].
-    ```
-
 ## 📞 Контакты
 
-*   **Автор:** Власов Дмитрий
-*   **Группа:** ПИНб-31
+**Автор:** Власов Дмитрий  
+**Группа:** ПИНб-31
 *   **GitHub:** [Dix1k](https://github.com/Dix1k)
+*   **Email**: Dix1k@yandex.ru
+*   **Telegram**: [@Dix1k](https://t.me/Dix1k)
 
 ---
 
-⭐️ Если этот репозиторий помог вам в освоении логического программирования, поставьте звезду!
-© 2025-2026 Власов Дмитрий (ПИНб-31)
+⭐️ **Понравился проект? Поставьте звезду на GitHub — это поможет другим найти его!**
+
+*© 2026 Власов Дмитрий*
 
 <div align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6&height=150&section=footer&text=Продолжайте%20кодить&fontSize=30&fontAlignY=70&animation=twinkling" width="100%" alt="Footer"/>
